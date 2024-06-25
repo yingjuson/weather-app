@@ -14,7 +14,7 @@ export class WeatherService {
 
     const weatherInfo = this.httpService
       .get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${address}&units=metric&appid=e3eb16ae49594bb986d1ee0b7be61b23`,
+        `https://api.openweathermap.org/data/2.5/weather?q=${address}&units=metric&appid=${process.env.OPENWEATHERMAP_API_KEY}`,
       )
       .pipe(
         map((response) => ({
@@ -50,7 +50,7 @@ export class WeatherService {
 
     const weatherInfo = this.httpService
       .get(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=e3eb16ae49594bb986d1ee0b7be61b23`,
+        `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${process.env.OPENWEATHERMAP_API_KEY}`,
       )
       .pipe(
         map((response) => ({
